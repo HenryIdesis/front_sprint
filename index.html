@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pesquisa Médica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Fundo azul claro */
+            color: #333; /* Cor do texto */
+        }
+
+        .header {
+            background-color: #e6f0ff; /* Azul claro para o cabeçalho */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra */
+        }
+
+        .header img {
+            height: 70px; /* Tamanho maior para o logo */
+        }
+
+        .header button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .header button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 900px;
+            background-color: #ffffff; /* Fundo branco para destaque */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 28px;
+            color: #004080; /* Azul escuro para o título */
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 18px;
+            color: #666; /* Texto cinza */
+            margin-bottom: 40px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+            gap: 20px;
+        }
+
+        .option {
+            background-color: #f9f9f9; /* Fundo cinza claro */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .option h2 {
+            font-size: 20px;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+
+        .option ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option ul li {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .option button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .option button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e6f0ff;
+            color: #333;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Criar o cabeçalho
+        const header = document.createElement('div');
+        header.className = 'header';
+
+        const logo = document.createElement('img');
+        logo.src = 'hospitalsiriolibanes.png';
+        logo.alt = 'Sírio-Libanês Logo';
+
+        const loginButton = document.createElement('button');
+        loginButton.textContent = 'Login';
+
+        header.appendChild(logo);
+        header.appendChild(loginButton);
+        document.body.appendChild(header);
+
+        // Criar o container principal
+        const container = document.createElement('div');
+        container.className = 'container';
+
+        const title = document.createElement('h1');
+        title.textContent = 'Conecte-se com a Pesquisa Médica';
+
+        const description = document.createElement('p');
+        description.textContent = 'Conectamos pacientes, médicos e pesquisadores aos estudos clínicos, com informações claras e acessíveis.';
+
+        container.appendChild(title);
+        container.appendChild(description);
+
+        // Criar as opções
+        const options = document.createElement('div');
+        options.className = 'options';
+
+        const createOption = (titleText, items) => {
+            const option = document.createElement('div');
+            option.className = 'option';
+
+            const optionTitle = document.createElement('h2');
+            optionTitle.textContent = titleText;
+
+            const ul = document.createElement('ul');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+
+            const button = document.createElement('button');
+            button.textContent = 'Acesse';
+
+            option.appendChild(optionTitle);
+            option.appendChild(ul);
+            option.appendChild(button);
+
+            return option;
+        };
+
+        options.appendChild(createOption('Para pacientes', [
+            'Visualize os estudos clínicos disponíveis',
+            'Participe de estudos sobre novos tratamentos'
+        ]));
+
+        options.appendChild(createOption('Para médicos', [
+            'Explore estudos para referenciar seus pacientes',
+            'Faça buscas avançadas pelos estudos'
+        ]));
+
+        container.appendChild(options);
+        document.body.appendChild(container);
+
+        // Criar o rodapé
+        const footer = document.createElement('footer');
+        footer.textContent = '© 2024 Hospital Sírio-Libanês. Todos os direitos reservados.';
+        document.body.appendChild(footer);
+    </script>
+</body>
+</html>
