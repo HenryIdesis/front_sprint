@@ -140,6 +140,11 @@
         const loginButton = document.createElement('button');
         loginButton.textContent = 'Login';
 
+        // Adicionar evento de redirecionamento
+        loginButton.addEventListener('click', () => {
+            window.location.href = 'login.html'; // Redireciona para a página de cadastro
+        });
+
         header.appendChild(logo);
         header.appendChild(loginButton);
         document.body.appendChild(header);
